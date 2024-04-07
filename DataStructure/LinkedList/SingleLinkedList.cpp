@@ -47,14 +47,11 @@ public:
     // Element* remove(const int& index) {}
 
     void print() const {
-        if (head) {
-            Node* currentNode = head;
-            while (currentNode) {
-                std::cout << currentNode->element << std::endl;
-                currentNode = currentNode->next;
-            }
-        } else {
-            cout << "NULL" << endl;
+        Node* currentNode = head;
+        while (currentNode) {
+            cout << currentNode->element << " -> ";
+            currentNode = currentNode->next;
         }
+        cout << "NULL" << endl;
     }
 };
