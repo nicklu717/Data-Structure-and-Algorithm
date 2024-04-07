@@ -5,7 +5,7 @@ SINGLELINKEDLIST = DataStructure/LinkedList/SingleLinkedList
 main.out: main.o $(SINGLELINKEDLIST).o
 	$(CC) $(CFLAGS) main.o $(SINGLELINKEDLIST).o -o main.out
 
-main.o: main.cpp
+main.o: main.cpp $(SINGLELINKEDLIST).cpp
 	$(CC) $(CFLAGS) -c main.cpp
 
 $(SINGLELINKEDLIST).o: $(SINGLELINKEDLIST).cpp
