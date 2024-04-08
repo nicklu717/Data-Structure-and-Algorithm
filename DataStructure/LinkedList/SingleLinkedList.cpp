@@ -1,4 +1,5 @@
 #include <iostream>
+#include <optional>
 
 using namespace std;
 
@@ -42,7 +43,19 @@ public:
 
     // bool insert(const Element& element, const int& index) {}
     
-    // Element* element(const int& index) {}
+    optional<Element> element(const int& index) {
+        Node* current = head;
+        if (index > 0) {
+            for (int i = 1; i <= index && current; i++) {
+                current = current->next;
+            }
+        }
+        if (current) {
+            return current->element;
+        } else {
+            return nullopt;
+        }
+    }
     
     // Element* remove(const int& index) {}
 

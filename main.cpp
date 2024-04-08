@@ -8,6 +8,13 @@ void testSingleLinkedList() {
     list.append(8);
     list.append(1111);
     list.print();
+    cout << *list.element(0) << endl;
+    cout << *list.element(1) << endl;
+    cout << *list.element(2) << endl;
+    cout << *list.element(3) << endl;
+    cout << *list.element(4) << endl;
+    cout << *list.element(5) << endl;
+    cout << *list.element(6) << endl;
 }
 
 int main() {
