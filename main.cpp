@@ -8,13 +8,21 @@ void testSingleLinkedList() {
     list.append(8);
     list.append(1111);
     list.print();
-    cout << *list.element(0) << endl;
-    cout << *list.element(1) << endl;
-    cout << *list.element(2) << endl;
-    cout << *list.element(3) << endl;
-    cout << *list.element(4) << endl;
-    cout << *list.element(5) << endl;
-    cout << *list.element(6) << endl;
+
+    cout << "Element 0: " << *list.element(0) << endl;
+    auto element_2 = list.element(2);
+    if (element_2.has_value()) {
+        cout << "Element 2: " << element_2.value() << endl;
+    } else {
+        cout << "Element 2: NULL" << endl;
+    }
+    auto element_5 = list.element(5);
+    if (element_5.has_value()) {
+        cout << "Element 5: " << element_5.value() << endl;
+    } else {
+        cout << "Element 5: NULL" << endl;
+    }
+    cout << "Element 6: " << *list.element(6) << endl;
 }
 
 int main() {
