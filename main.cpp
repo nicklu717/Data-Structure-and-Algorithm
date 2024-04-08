@@ -1,5 +1,14 @@
 #include "DataStructure/LinkedList/SingleLinkedList.cpp"
 
+void testSingleLinkedList();
+
+int main() {
+    testSingleLinkedList();
+
+    return 0;
+}
+
+// MARK: - Testing methods
 void testSingleLinkedList() {
     SingleLinkedList<int> list = SingleLinkedList<int>();
     list.append(3);
@@ -23,10 +32,4 @@ void testSingleLinkedList() {
         cout << "Element 5: NULL" << endl;
     }
     cout << "Element 6: " << *list.element(6) << endl;
-}
-
-int main() {
-    testSingleLinkedList();
-
-    return 0;
 }
