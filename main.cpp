@@ -32,4 +32,19 @@ void testSingleLinkedList() {
         cout << "Element 5: NULL" << endl;
     }
     cout << "Element 6: " << *list.element(6) << endl;
+
+    list.insert(7, 3);
+    list.insert(4, 1);
+    list.insert(99, 0);
+    list.insert(23489, 23);
+    list.print();
+
+    list.remove(6);
+    list.print();
+    list.remove(6);
+    list.print();
+    list.remove(6);
+    list.print();
+    list.remove(0);
+    list.print();
 }
