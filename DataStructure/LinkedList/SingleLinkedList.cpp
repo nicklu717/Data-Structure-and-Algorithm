@@ -41,7 +41,29 @@ public:
         }
     }
 
-    // bool insert(const Element& element, const int& index) {}
+    bool insert(const Element& element, const int& index) {
+        if (index == 0) {
+            Node* newNode = new Node(element);
+            newNode->next = head;
+            head = newNode;
+            return true;
+        } else if (index > 0) {
+            Node* currentNode = head;
+            for (int i = 1; i < index && currentNode; i++) {
+                currentNode = currentNode->next;
+            }
+            if (currentNode) {
+                Node* newNode = new Node(element);
+                newNode->next = currentNode->next;
+                currentNode->next = newNode;
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
     
     optional<Element> element(const int& index) {
         Node* current = head;
@@ -57,7 +79,35 @@ public:
         }
     }
     
-    // Element* remove(const int& index) {}
+    optional<Element> remove(const int& index) {
+        if (head) {
+            if (index > 0) {
+                Node* currentNode = head;
+                for (int i = 1; i < index && currentNode; i++) {
+                    currentNode = currentNode->next;
+                }
+                if (currentNode && currentNode->next) {
+                    Node* removedNode = currentNode->next;
+                    currentNode->next = removedNode->next;
+                    Element removedElement = removedNode->element;
+                    delete removedNode;
+                    return removedElement;
+                } else {
+                    return nullopt;
+                }
+            } else if (index == 0) {
+                Node* previousHead = head;
+                Element removedElement = previousHead->element;
+                head = head->next;
+                delete previousHead;
+                return removedElement;
+            } else {
+                return nullopt;
+            }
+        } else {
+            return nullopt;
+        }
+    }
 
     void print() const {
         Node* currentNode = head;
