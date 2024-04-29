@@ -17,11 +17,9 @@ tests: tests.out
 .PHONY: tests
 
 tests.out: tests.o $(SINGLELINKEDLIST).o
-	echo $(VCPKG_DIR)/lib/
 	$(CC) $(CFLAGS) tests.o $(SINGLELINKEDLIST).o -o tests.out -L $(VCPKG_DIR)/lib/ -l gtest -L $(VCPKG_DIR)/lib/manual-link/ -l gtest_main
 
 tests.o: tests.cpp $(SINGLELINKEDLIST).cpp
-	echo $(CURRENT_DIR)
 	$(CC) $(CFLAGS) -c tests.cpp -I $(VCPKG_DIR)/include/
 
 $(SINGLELINKEDLIST).o: $(SINGLELINKEDLIST).cpp
