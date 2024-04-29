@@ -4,11 +4,17 @@ SINGLELINKEDLIST = DataStructure/LinkedList/SingleLinkedList
 CURRENT_DIR = $(shell pwd)
 VCPKG_DIR = $(CURRENT_DIR)/tools/vcpkg/installed/arm64-osx
 
+main: main.out
+.PHONY: main
+
 main.out: main.o $(SINGLELINKEDLIST).o
 	$(CC) $(CFLAGS) main.o $(SINGLELINKEDLIST).o -o main.out
 
 main.o: main.cpp $(SINGLELINKEDLIST).cpp
 	$(CC) $(CFLAGS) -c main.cpp
+
+tests: tests.out
+.PHONY: tests
 
 tests.out: tests.o $(SINGLELINKEDLIST).o
 	echo $(VCPKG_DIR)/lib/
